@@ -1,0 +1,43 @@
+<?php
+require ('auth.php');
+session_start();
+
+$login = getUserLogCookie();
+$loginSession = getUserLogSession();
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+</head>
+<body>
+    <h3>Главная страница</h3>
+    <?php if($login !== null) :?>
+    Добро пожаловать, <?= $login ?> с помощью Cookie
+    <?php else: ?>
+        <a href="login.php">Авторизуйтесь c Cookie</a>
+    <?php endif; ?>
+
+    <?php if($loginSession !== null) :?>
+    <br>
+    Добро пожаловать, <?= $loginSession ?> с помощью Session
+   
+    <?php else: ?>
+        <br>
+        <a href="loginSession.php">Авторизуйтесь с Session</a>
+    <?php endif; ?>
+
+    <?php if($login !== null && $loginSession !== null) :?>
+        <br><br>
+        Варианты 4 лб:
+        <ul>
+            <li> <a href="1.php">Первый вариант</a> </li>
+            <li> <a href="2.php">Второй вариант</a> </li>
+        </ul>
+    <?php endif; ?>
+</body>
+</html>
