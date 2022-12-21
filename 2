@@ -1,0 +1,24 @@
+<?php
+require ('auth.php');
+session_start();
+
+$login = getUserLogCookie();
+$loginSession = getUserLogSession();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var 2</title>
+</head>
+<body>
+    <p>Ваш логин, <?= $login ?> с помощью Cookie</p> 
+    <p>Ваш логин, <?= $loginSession ?> с помощью Session</p>
+    <div>Написать сценарий прохода формы логина. Есть форма с полями "логин", "пароль", если введенные данные не совпадают с правильными (определенными в текстовом файле), то выводить сообщение об ошибке, если совпадают, то выводить "вы залогинены". Использовать массив глобальных переменных $_POST (метод отправки формы - POST).</div>
+    <br>
+    <a href="index.php">Назад</a>
+</body>
+</html>
