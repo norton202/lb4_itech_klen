@@ -1,0 +1,31 @@
+<?php
+
+function checkAuth($login, $password){
+    $users = require ('db.php');
+    foreach($users as $user){
+        if($user['login'] === $login && $user['password'] === $password){
+            return true;
+        }
+    }
+    return false;
+}
+
+function getUserLogCookie(){
+    $logCookie = $_COOKIE['login'] ?? '';
+    $pasCookie = $_COOKIE['password'] ?? '';
+
+    if(checkAuth($logCookie, $pasCookie)){
+        return $logCookie;
+    }
+    return null;
+}
+
+function getUserLogSession(){
+    $logSession = $_SESSION['login'] ?? '';
+    $pasSession = $_SESSION['password'] ?? '';
+    if(checkAuth($logSession, $pasSession)){
+        return $logSession;
+    }
+    return null;
+}
+?>
