@@ -1,0 +1,25 @@
+<?php
+require ('auth.php');
+session_start();
+
+$login = getUserLogCookie();
+$loginSession = getUserLogSession();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var 1</title>
+</head>
+<body>
+    <p>Ваш логин, <?= $login ?> с помощью Cookie</p> 
+    <p>Ваш логин, <?= $loginSession ?> с помощью Session</p>
+    <div>Написать скрипт подсчета количества показов страницы. Количество посещений хранить в текстовом файле. Использовать функции для работы с файлами (например fread, fwrite, fclose...).
+    <br>
+    <a href="index.php">Назад</a>
+</div>
+</body>
+</html>
